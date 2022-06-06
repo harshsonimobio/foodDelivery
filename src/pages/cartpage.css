@@ -1,0 +1,64 @@
+button:disabled{
+    color: black;
+    background-color: gray;
+    
+}
+
+.buttonPlace {
+    border-radius: 10px;
+
+    margin-right: 220px;
+    
+}
+
+button:disabled:hover {
+    background-color: grey;
+    color: black;
+}
+
+.TableLayout {
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    margin-left: 300px;
+    border: 1px solid black;
+    padding: 25px;
+    margin-bottom: 60px;
+    margin-top: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 10px #aaaaaa
+}
+
+.total {
+    width: 460px;
+    font-size: large;
+    /* display: flex;
+    justify-content: flex-end; */
+    margin-left: 850px;
+    align-items: center;
+}
+
+.empty {
+    font-size: small;
+
+}
+
+.empty .return {
+    display: flex;
+    justify-content: center;
+}
+
+.delete {
+    background-color: white;
+    color: red;
+}
+
+.delete:hover {
+    color: white;
+    background-color: red;
+}
+
+.tdAdjust {
+    margin-top: 1000px;
+    
+}

@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/Dishes";
+import Dishes from "./pages/Homepage";
 import { Route, BrowserRouter, Routes, Navigate } from "react-router-dom";
-import ProductInfo from "./pages/ProductInfo";
 import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -12,8 +12,9 @@ import "./stylesheets/products.css";
 import "./stylesheets/authentication.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import OrdersPage from "./pages/OrdersPage";
+// import OrdersPage from "./pages/OrdersPage";
 import AdminPage from "./pages/AdminPage";
+import Forget from "./pages/ForgetPassword";
 function App() {
   return (
     <div className="App">
@@ -25,11 +26,20 @@ function App() {
             exact
             element={
               <ProtectedRoutes>
-                <Homepage />
+                <Dishes />
               </ProtectedRoutes>
             }
           />
           <Route
+            path="/dish"
+            exact
+            element={
+              <ProtectedRoutes>
+                <Homepage />
+              </ProtectedRoutes>
+            }
+          />
+          {/* <Route
             path="/productinfo/:productid"
             exact
             element={
@@ -37,7 +47,7 @@ function App() {
                 <ProductInfo />
               </ProtectedRoutes>
             }
-          />
+          /> */}
           <Route
             path="/cart"
             exact
@@ -47,7 +57,7 @@ function App() {
               </ProtectedRoutes>
             }
           />
-           <Route
+           {/* <Route
             path="/orders"
             exact
             element={
@@ -55,7 +65,7 @@ function App() {
                 <OrdersPage />
               </ProtectedRoutes>
             }
-          />
+          /> */}
            <Route
             path="/admin"
             exact
@@ -67,6 +77,7 @@ function App() {
           />
 
           <Route path="/login" exact element={<LoginPage />} />
+          <Route path="/forget" exact element={<Forget />} />
           <Route path="/register" exact element={<RegisterPage />} />
         </Routes>
       </BrowserRouter>
@@ -83,3 +94,4 @@ export const ProtectedRoutes = ({ children }) => {
     return <Navigate to="/login" />;
   }
 };
+

@@ -66,5 +66,22 @@ input , select{
   color: black !important;
 }
 .nav-tabs{
-    background-color: cadetblue;
+    background-color: #003F5C;
+    /* color: #fff; */
+}
+
+.allTabs {
+    width: 1000px;
+    margin-left: 250px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 10px #aaaaaa ;
+}
+
+.action .update button {
+    background-color: #fff;
+}
+
+.items button {
+    border-radius: 7px;
 }

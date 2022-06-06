@@ -42,11 +42,11 @@ function ProductInfo() {
           <div className="col-md-8">
             {product && (
               <div>
+                <img src={product.imageURL} className="product-info-img" />
+                <hr />
                 <p>
                   <b>{product.name}</b>
                 </p>
-                <img src={product.imageURL} className="product-info-img" />
-                <hr />
                 <p>{product.description}</p>
                 <div className="d-flex justify-content-end my-3">
                   <button onClick={()=>addToCart(product)}>ADD TO CART</button>

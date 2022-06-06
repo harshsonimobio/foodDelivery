@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Layout from "../components/Layout";
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import fireDB from "../fireConfig";
 // import { fireproducts } from "../firecommerce-products";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
-
-function Homepage() {
+function Dishes() {
   const [products, setProducts] = useState([]);
   const { cartItems } = useSelector((state) => state.cartReducer);
   const [loading, setLoading] = useState(false);
@@ -23,7 +20,7 @@ function Homepage() {
   async function getData() {
     try {
       setLoading(true);
-      const users = await getDocs(collection(fireDB, "restros"));
+      const users = await getDocs(collection(fireDB, "products"));
       const productsArray = [];
       users.forEach((doc) => {
         const obj = {
@@ -48,18 +45,14 @@ function Homepage() {
 
   const addToCart = (product) => {
     dispatch({ type: "ADD_TO_CART", payload: product });
-  };
-
-
-  
+  };  
 
   return (
     <Layout loading={loading}>
-        <h1>Restaurents</h1>
+      <h1>Dishes</h1>
       <div className="container">
         <div className="d-flex w-50 align-items-center my-3 justify-content-center">
           <input
-          data-testid='search'
             type="text"
             value={searchKey}
             onChange={(e) => {
@@ -71,26 +64,14 @@ function Homepage() {
           />
           <select
             className="form-control mt-3"
-            data-testid='filter'
             value={filterType}
             onChange={(e) => {
               setFilterType(e.target.value);
             }}
           >
             <option value="">All</option>
-            <option value="restaurants">Restaurents</option>
-            <option value="cafe">Cafes</option>
-          </select> &nbsp;&nbsp;
-          <select
-            className="form-control mt-3"
-            value={filterType}
-            onChange={(e) => {
-              setFilterType(e.target.value);
-            }}
-          >
-            <option value="">Sort By</option>
-            <option value="name">Name</option>
-            <option value="number">Number</option>
+            <option value="food">FOOD</option>
+            <option value="drink">COLDDRINDS</option>
           </select>
         </div>
         <div className="row">
@@ -110,15 +91,15 @@ function Homepage() {
                         />
                       </div>
                       <h4>{product.name}</h4>
-                      <h5>Phone no.: {product.number}</h5>
+                      <h5>{product.price} RS/-</h5>
                     </div>
                     <div className="product-actions">
                       <div className="d-flex">
                         <button
                           className="mx-2"
-                          data-testid='order'
+                          onClick={() => addToCart(product)}
                         >
-                            <Link to="/dish">ORDER</Link>
+                          ADD TO CART
                         </button>
                       </div>
                     </div>
@@ -132,4 +113,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Dishes;

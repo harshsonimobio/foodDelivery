@@ -2,13 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhpP_9HpD9TPhbiClU4LMSrOmRacpkqi4",
-  authDomain: "firecommerce-d3219.firebaseapp.com",
-  projectId: "firecommerce-d3219",
-  storageBucket: "firecommerce-d3219.appspot.com",
-  messagingSenderId: "667285674766",
-  appId: "1:667285674766:web:cca456fed54c084edc155f",
-  measurementId: "G-VECTKQMSX4"
+  apiKey: "AIzaSyAUeZwFGwgAK2kQKJHVHHiaREU2AvwB_FI",
+  authDomain: "resttro.firebaseapp.com",
+  projectId: "resttro",
+  storageBucket: "resttro.appspot.com",
+  messagingSenderId: "282649406051",
+  appId: "1:282649406051:web:fce22a2a47b455503ce656",
 };
 
 // Initialize Firebase

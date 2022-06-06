@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
-
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +23,7 @@ function LoginPage() {
       window.location.href='/'
     } catch (error) {
       console.log(error);
-      toast.error("Login failed");
+      toast.error("Invalid Credentials");
       setLoading(false);
     }
   };
@@ -62,12 +61,13 @@ function LoginPage() {
 
             <hr />
 
-            <Link to='/register'>Click Here To Register</Link>
+            <Link to='/register'>Click Here To Register</Link><br />
+            <Link to='/forget'>Forget Password?</Link>
           </div>
         </div>
         <div className="col-md-5 z1">
           <lottie-player
-            src="https://assets7.lottiefiles.com/packages/lf20_yr6zz3wv.json"
+            src="https://assets1.lottiefiles.com/packages/lf20_87uabjh2.json"
             background="transparent"
             speed="1"
             loop
